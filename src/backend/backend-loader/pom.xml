@@ -13,7 +13,7 @@
     </parent>
 
     <artifactId>backend-loader</artifactId>
-    <version>0.0.28</version>
+    <version>0.0.29</version>
 
     <dependencies>
         <dependency>
