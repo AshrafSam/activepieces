@@ -9,7 +9,7 @@ export const newLeads= createTrigger(
         description:"This webhook will be triggered on creation on new leads",
         onDisable:async()=>{},
         onEnable: async()=>{},
-        run: async(context)=>{return Promise.resolve([])},
+        run: async(context)=>{return Promise.resolve([{}])},
         configs:[{
 			name: 'authentication',
 			description: "",

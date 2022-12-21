@@ -49,44 +49,44 @@ export const insertRowAction = createAction({
 	],
 	async runner(configValue) {
 		const values = configValue['values'];
-		if(typeof(values)=== "string")
-		{
-			try{
-				const jsonValues= JSON.parse(values);
-				await appendGoogleSheetValues({
-					accessToken: configValue['authentication']['access_token'],
-					majorDimension: Dimension.COLUMNS,
-					range: configValue['range'],
-					spreadSheetId: configValue['spreadSheetId'],
-					valueInputOption: configValue['asString']
-						? ValueInputOption.RAW
-						: ValueInputOption.USER_ENTERED,
-					values: jsonValues as string[],
-				});
-			}
-			catch(error)
-			{
-				console.error(error);
-				throw error;
-			}
-		}
-		else if(Array.isArray(values))
-		{			
-				await appendGoogleSheetValues({
-					accessToken: configValue['authentication']['access_token'],
-					majorDimension: Dimension.COLUMNS,
-					range: configValue['range'],
-					spreadSheetId: configValue['spreadSheetId'],
-					valueInputOption: configValue['asString']
-						? ValueInputOption.RAW
-						: ValueInputOption.USER_ENTERED,
-					values: values as string[],
-				});
-		}
-		else
-		{
-			throw Error("Values passed are not a string or an array")
-		}
+		// if(typeof(values)=== "string")
+		// {
+		// 	try{
+		// 		const jsonValues= JSON.parse(values);
+		// 		await appendGoogleSheetValues({
+		// 			accessToken: configValue['authentication']['access_token'],
+		// 			majorDimension: Dimension.COLUMNS,
+		// 			range: configValue['range'],
+		// 			spreadSheetId: configValue['spreadSheetId'],
+		// 			valueInputOption: configValue['asString']
+		// 				? ValueInputOption.RAW
+		// 				: ValueInputOption.USER_ENTERED,
+		// 			values: jsonValues as string[],
+		// 		});
+		// 	}
+		// 	catch(error)
+		// 	{
+		// 		console.error(error);
+		// 		throw error;
+		// 	}
+		// }
+		// else if(Array.isArray(values))
+		// {			
+		// 		await appendGoogleSheetValues({
+		// 			accessToken: configValue['authentication']['access_token'],
+		// 			majorDimension: Dimension.COLUMNS,
+		// 			range: configValue['range'],
+		// 			spreadSheetId: configValue['spreadSheetId'],
+		// 			valueInputOption: configValue['asString']
+		// 				? ValueInputOption.RAW
+		// 				: ValueInputOption.USER_ENTERED,
+		// 			values: values as string[],
+		// 		});
+		// }
+		// else
+		// {
+		// 	throw Error("Values passed are not a string or an array")
+		// }
 		return {
 			success: true,
 		};

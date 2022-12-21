@@ -76,7 +76,7 @@ async function executeTrigger(): Promise<unknown[]> {
         variableService.resolve(componentSettings.input, executionState));
     switch (optionRequest.method){
         case 'run':
-            return trigger.run(context);
+            return await trigger.run(context);
         case 'on-enable':
             trigger.onEnable(context);
             return [];
